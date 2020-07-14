@@ -1,0 +1,16 @@
+{
+    "name": "hgod/classes",
+    "description": "Classes para criar custom-post-types, taxonomies, loads e admins pages no wordpress",
+    "type": "library",
+    "authors": [{
+        "name": "Henrique Godinho",
+        "email": "hnrq.godinho@gmail.com"
+    }],
+    "require": {},
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.6",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "wp-coding-standards/wpcs": "^0.14.0",
+        "automattic/vipwpcs": "*"
+    }
+}
