@@ -123,6 +123,13 @@ class HGod_Loads {
 				}
 			}
 		}
+		if ( isset( $styles ) ) {
+			if ( is_array( $styles ) ) {
+				foreach ( $styles as $style ) {
+					add_action( $style['hook'], array( $this, 'loop_styles' ) );
+				}
+			}
+		}
 	}
 
 }

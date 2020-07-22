@@ -9,6 +9,7 @@ Define classes for generating:
 
 ## Changelog
 
+- `0.2.1` missing code for add_action on styles array of class-hgod-load.php,
 - `0.2.0` multiple adds and changes,
 - `0.1.0` init.
 
