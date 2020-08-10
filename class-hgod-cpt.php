@@ -17,7 +17,7 @@ class HGod_Cpt {
 	 *
 	 * @var array
 	 */
-	private $post_types = array();
+	public $post_types = array();
 
 	/**
 	 * Construct

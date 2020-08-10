@@ -23,6 +23,7 @@
  * # Styles
  * @see wp_register_style() https://developer.wordpress.org/reference/functions/wp_register_style/
  * @see wp_enqueue_style() https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+ * @deprecated 1.1.0
  */
 class HGod_Loads {
 	/**
@@ -70,7 +71,7 @@ class HGod_Loads {
 							$script['in_footer']
 						);
 						if ( ! $done ) {
-							HGodBee::hb_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
+							//HGodBee::hb_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_script( $script['handle'] );
 					}
@@ -99,7 +100,7 @@ class HGod_Loads {
 							$style['in_footer']
 						);
 						if ( ! $done ) {
-							HGodBee::hb_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
+							//HGodBee::hb_var_dump( $style['ver'], __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_style( $style['handle'] );
 					}
