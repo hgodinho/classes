@@ -32,6 +32,13 @@ class HGod_Admin {
     private $submenus = array();
 
     /**
+     * Returned Submenu
+     *
+     * @var array
+     */
+    private $returned_submenu = array();
+
+    /**
      * Settings
      *
      * @var array
@@ -310,6 +317,7 @@ class HGod_Admin {
                 );
                 $submenu['index'] = $index;
                 $submenu['hook']  = $submenu_page;
+                array_push($this->returned_submenu, $submenu);
             } else {
                 foreach ($args as $submenu) {
                     $submenu_page = add_submenu_page(
@@ -323,6 +331,7 @@ class HGod_Admin {
                     );
                     $submenu['index'] = $index;
                     $submenu['hook']  = $submenu_page;
+                    array_push($this->returned_submenu, $submenu);
                     $index++;
                 }
             }
