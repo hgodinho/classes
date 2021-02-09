@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/reference/functions/register_taxonomy/
  * @package hgod/classes
- * @author hgodinho <hnrq.godinho@gmail.com>
+ * @author Henrique Godinho <ola@hgod.in>
  */
 
 /**

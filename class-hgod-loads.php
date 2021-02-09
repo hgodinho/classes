@@ -2,7 +2,8 @@
 /**
  * HGod_Loads
  *
- * @package hgod/classes
+ * @package hgod/classes 
+ * @author Henrique Godinho <ola@hgod.in>
  */
 
 /**
@@ -71,7 +72,7 @@ class HGod_Loads {
 							$script['in_footer']
 						);
 						if ( ! $done ) {
-							//HGodBee::hb_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
+							// HGodBee::hb_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_script( $script['handle'] );
 					}
@@ -100,7 +101,7 @@ class HGod_Loads {
 							$style['in_footer']
 						);
 						if ( ! $done ) {
-							//HGodBee::hb_var_dump( $style['ver'], __CLASS__, __METHOD__, __LINE__, true );
+							// HGodBee::hb_var_dump( $style['ver'], __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_style( $style['handle'] );
 					}

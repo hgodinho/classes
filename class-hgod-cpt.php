@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Function_Reference/register_post_type
  * @package hgod/classes
- * @author hgodinho <hnrq.godinho@gmail.com>
+ * @author Henrique Godinho <ola@hgod.in>
  */
 
 /**
@@ -24,7 +24,7 @@ class HGod_Cpt {
 	 *
 	 * @param array $args | CPT options.
 	 */
-	public function __construct( $args ) {
+	public function __construct( $args, $init = true ) {
 		if ( is_array( $args ) ) {
 			$count = count( array_values( $args ) );
 			if ( $count > 0 && $count < 2 ) {
@@ -38,7 +38,9 @@ class HGod_Cpt {
 				}
 			}
 		}
-		add_action( 'init', array( $this, 'registra_post' ) );
+		if ( $init ) {
+			add_action( 'init', array( $this, 'registra_post' ) );
+		}
 	}
 
 	/**

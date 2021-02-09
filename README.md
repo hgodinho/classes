@@ -1,4 +1,4 @@
-# HGod Classes
+# HGod_Classes
 
 Define classes for generating:
 
@@ -9,6 +9,7 @@ Define classes for generating:
 
 ## Changelog
 
+- `0.4.0` 
 - `0.3.2` minor changes
 - `0.3.1` minor changes
 - `0.3.0` minor changes
@@ -22,3 +23,4 @@ Define classes for generating:
 - [ ] securit checks,
 - [ ] widgets,
 - [ ] menus?
+s
