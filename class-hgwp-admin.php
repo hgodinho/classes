@@ -1,15 +1,11 @@
 <?php
 /**
- * Classe HGod_Admin
+ * Classe HGWP_Admin
  *
- * @package hgod/classes
+ * @package hgod/hgwp_utils
  * @author Henrique Godinho <ola@hgod.in>
  */
-
-/**
- * HGod_Admin
- */
-class HGod_Admin {
+class HGWP_Admin {
 	/**
 	 * Admin Options
 	 *

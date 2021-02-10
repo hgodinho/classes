@@ -1,20 +1,16 @@
 <?php
 /**
- * HGod_Loads
+ * HGWP_Loads
  *
- * @package hgod/classes 
+ * @package hgod/hgwp_utils
  * @author Henrique Godinho <ola@hgod.in>
  */
 
 /**
- * HGod_Loads
+ * HGWP_Loads
  *
  * Loop thru array and register scripts and styles in the passed hooks
- *
- * @package hgod/classes
- * @version 1.0.0
- * @author Henrique Godinho <hnrq.godinho@gmail.com>
- *
+
  * @see current_filter() https://developer.wordpress.org/reference/functions/current_filter/
  *
  * # Scripts
@@ -26,7 +22,7 @@
  * @see wp_enqueue_style() https://developer.wordpress.org/reference/functions/wp_enqueue_style/
  * @deprecated 1.1.0
  */
-class HGod_Loads {
+class HGWP_Loads {
 	/**
 	 * Scripts options array.
 	 *

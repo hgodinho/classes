@@ -3,14 +3,10 @@
  * Adiciona Custom-post types
  *
  * @link https://codex.wordpress.org/Function_Reference/register_post_type
- * @package hgod/classes
+ * @package hgod/hgwp_utils
  * @author Henrique Godinho <ola@hgod.in>
  */
-
-/**
- * HGod_Cpt
- */
-class HGod_Cpt {
+class HGWP_Cpt {
 
 	/**
 	 * Post Types
@@ -59,7 +55,7 @@ class HGod_Cpt {
 				$args      = $post_type['args'];
 				$register  = register_post_type( $name, $args );
 				if ( is_wp_error( $register ) ) {
-					HGodBee::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
+					HGWP_Utils::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
 				}
 			} else {
 				foreach ( $post_types as $post_type ) {
@@ -69,7 +65,7 @@ class HGod_Cpt {
 						$register = register_post_type( $name, $args );
 					}
 					if ( is_wp_error( $register ) ) {
-						HGodBee::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, false );
+						HGWP_Utils::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, false );
 					}
 				}
 			}

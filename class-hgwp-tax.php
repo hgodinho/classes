@@ -3,14 +3,14 @@
  * Adiciona as Custom Taxonomies
  *
  * @link https://developer.wordpress.org/reference/functions/register_taxonomy/
- * @package hgod/classes
+ * @package hgod/hgwp_utils
  * @author Henrique Godinho <ola@hgod.in>
  */
 
 /**
- * HGod_Tax
+ * HGWP_Tax
  */
-class HGod_Tax {
+class HGWP_Tax {
 
 	/**
 	 * Taxonomies

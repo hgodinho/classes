@@ -1,14 +1,20 @@
-# HGod_Classes
+# HGWP_Utils
 
-Define classes for generating:
+Classes de utilidades para desenvolvimento em WordPress
+### class HGWP_Admin
 
-- custom-post-types,
-- custom taxonomies,
-- custom admin with settings and submenus,
-- script and styles loading
+### class HGWP_Cpt
+
+### class HGWP_Loads
+
+### class HGWP_Tax
+
+### class HGWP_Utils
+
 
 ## Changelog
 
+- `0.5.0` mudança no nome das classes e adiçao da HGWP_Utils
 - `0.4.0` 
 - `0.3.2` minor changes
 - `0.3.1` minor changes
@@ -21,6 +27,6 @@ Define classes for generating:
 
 - [ ] doc,
 - [ ] securit checks,
+- [ ] error handling,
 - [ ] widgets,
 - [ ] menus?
-s
