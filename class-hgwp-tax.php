@@ -7,6 +7,8 @@
  * @author Henrique Godinho <ola@hgod.in>
  */
 
+namespace HGWP_Utils;
+
 /**
  * HGWP_Tax
  */

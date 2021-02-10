@@ -6,6 +6,12 @@
  * @package hgod/hgwp_utils
  * @author Henrique Godinho <ola@hgod.in>
  */
+
+namespace HGWP_Utils;
+
+/**
+ * HGWP_Cpt
+ */
 class HGWP_Cpt {
 
 	/**
@@ -18,7 +24,8 @@ class HGWP_Cpt {
 	/**
 	 * Construct
 	 *
-	 * @param array $args | CPT options.
+	 * @param array   $args | CPT options.
+	 * @param boolean $init | Init.
 	 */
 	public function __construct( $args, $init = true ) {
 		if ( is_array( $args ) ) {
@@ -55,7 +62,7 @@ class HGWP_Cpt {
 				$args      = $post_type['args'];
 				$register  = register_post_type( $name, $args );
 				if ( is_wp_error( $register ) ) {
-					HGWP_Utils::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
+					HGWP_Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
 				}
 			} else {
 				foreach ( $post_types as $post_type ) {
@@ -65,7 +72,7 @@ class HGWP_Cpt {
 						$register = register_post_type( $name, $args );
 					}
 					if ( is_wp_error( $register ) ) {
-						HGWP_Utils::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, false );
+						HGWP_Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, false );
 					}
 				}
 			}

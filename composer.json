@@ -11,6 +11,11 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
         "phpcompatibility/phpcompatibility-wp": "*",
         "wp-coding-standards/wpcs": "^0.14.0",
-        "automattic/vipwpcs": "*"
+        "automattic/vipwpcs": "*", 
+        "wp-cli/wp-cli-bundle": "*"
+    },
+    "scripts": {
+        "phpcs": "php vendor/squizlabs/php_codesniffer/bin/phpcs --standard=WordPress --colors",
+        "phpcbf": "php vendor/squizlabs/php_codesniffer/bin/phpcbf --standard=WordPress --colors"
     }
 }

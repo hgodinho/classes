@@ -1,57 +1,65 @@
 <?php
 /**
- * Classe HGWP_Admin
+ * HGWP_Admin
  *
  * @package hgod/hgwp_utils
  * @author Henrique Godinho <ola@hgod.in>
+ */
+
+namespace HGWP_Utils;
+
+/**
+ * Classe HGWP_Admin
  */
 class HGWP_Admin {
 	/**
 	 * Admin Options
 	 *
-	 * @var array
+	 * @var array $admin | Admin
 	 */
 	private $admin = array();
 
 	/**
 	 * Menu Options
 	 *
-	 * @var array
+	 * @var array $menu | Menu
 	 */
 	public $menu = array();
 
 	/**
 	 * Submenu Options
 	 *
-	 * @var array
+	 * @var array $submenu | Submenu
 	 */
 	private $submenus = array();
 
 	/**
 	 * Returned Submenu
 	 *
-	 * @var array
+	 * @var array $returned_submenu | Returned Submenu
 	 */
 	private $returned_submenu = array();
 
 	/**
 	 * Settings
 	 *
-	 * @var array
+	 * @var array $settings | Settings
 	 */
 	private $settings = array();
 
 	/**
 	 * Settings Sections
 	 *
-	 * @var array
+	 * @var array $sections | Sections
 	 */
 	private $sections = array();
 
 	/**
-	 * Construtor
+	 * Constructor
 	 *
-	 * @param array $args | Options Array.
+	 * @param array $menu | Menu.
+	 * @param array $submenus | Submenus.
+	 * @param array $settings | Settings.
 	 */
 	public function __construct( $menu = array(), $submenus = array(), $settings = array() ) {
 		$this->parse_menu( $menu );
@@ -68,7 +76,7 @@ class HGWP_Admin {
 	/**
 	 * Parse Menu
 	 *
-	 * @param array $menu
+	 * @param array $menu | Menu.
 	 * @return void
 	 */
 	public function parse_menu( $menu ) {
@@ -89,7 +97,7 @@ class HGWP_Admin {
 	/**
 	 * Parse Submenus
 	 *
-	 * @param array $submenus
+	 * @param array $submenus | Submenus.
 	 * @return void
 	 */
 	public function parse_submenus( $submenus ) {
@@ -113,11 +121,10 @@ class HGWP_Admin {
 	/**
 	 * Parse Settings
 	 *
-	 * @param array $settings
+	 * @param array $settings | Settings.
 	 * @return void
 	 */
 	public function parse_settings( $settings ) {
-		// HGodBee::hb_var_dump($settings, __CLASS__, __METHOD__, __LINE__, true);
 		$option_group      = $settings['option_group'];
 		$option_name       = $settings['option_name'];
 		$settings_sections = $settings['sections'];

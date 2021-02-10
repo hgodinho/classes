@@ -6,6 +6,8 @@
  * @author Henrique Godinho <ola@hgod.in>
  */
 
+namespace HGWP_Utils;
+
 /**
  * HGWP_Loads
  *
@@ -68,7 +70,7 @@ class HGWP_Loads {
 							$script['in_footer']
 						);
 						if ( ! $done ) {
-							// HGodBee::hb_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
+							HGWP_Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_script( $script['handle'] );
 					}
@@ -97,7 +99,7 @@ class HGWP_Loads {
 							$style['in_footer']
 						);
 						if ( ! $done ) {
-							// HGodBee::hb_var_dump( $style['ver'], __CLASS__, __METHOD__, __LINE__, true );
+							HGWP_Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_style( $style['handle'] );
 					}
