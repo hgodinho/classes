@@ -14,6 +14,7 @@ Classes de utilidades para desenvolvimento em WordPress
 
 ## Changelog
 
+- `0.7.1` estrutura das pastas e autoload
 - `0.7.0` namespace e phpcs
 - `0.6.0` mudança no nome composer
 - `0.5.0` mudança no nome das classes e adiçao da HGWP_Utils

@@ -17,5 +17,10 @@
     "scripts": {
         "phpcs": "php vendor/squizlabs/php_codesniffer/bin/phpcs --standard=WordPress --colors",
         "phpcbf": "php vendor/squizlabs/php_codesniffer/bin/phpcbf --standard=WordPress --colors"
+    },
+    "autoload": {
+        "psr-4": {
+            "HGWP_Utils\\": "src/"
+        }
     }
 }
