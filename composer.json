@@ -1,10 +1,10 @@
 {
-    "name": "hgod/classes",
+    "name": "hgod/hgwp_utils",
     "description": "Classes para criar custom-post-types, taxonomies, loads e admins pages no wordpress",
     "type": "library",
     "authors": [{
         "name": "Henrique Godinho",
-        "email": "hnrq.godinho@gmail.com"
+        "email": "ola@hgod.in"
     }],
     "require": {},
     "require-dev": {

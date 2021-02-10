@@ -14,6 +14,7 @@ Classes de utilidades para desenvolvimento em WordPress
 
 ## Changelog
 
+- `0.6.0` mudança no nome composer
 - `0.5.0` mudança no nome das classes e adiçao da HGWP_Utils
 - `0.4.0` 
 - `0.3.2` minor changes
