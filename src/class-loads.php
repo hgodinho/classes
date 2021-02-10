@@ -9,7 +9,7 @@
 namespace HGWP_Utils;
 
 /**
- * HGWP_Loads
+ * Loads
  *
  * Loop thru array and register scripts and styles in the passed hooks
 
@@ -24,7 +24,7 @@ namespace HGWP_Utils;
  * @see wp_enqueue_style() https://developer.wordpress.org/reference/functions/wp_enqueue_style/
  * @deprecated 1.1.0
  */
-class HGWP_Loads {
+class Loads {
 	/**
 	 * Scripts options array.
 	 *

@@ -10,9 +10,9 @@
 namespace HGWP_Utils;
 
 /**
- * HGWP_Tax
+ * Tax
  */
-class HGWP_Tax {
+class Tax {
 
 	/**
 	 * Taxonomies

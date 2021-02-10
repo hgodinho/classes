@@ -14,6 +14,7 @@ Classes de utilidades para desenvolvimento em WordPress
 
 ## Changelog
 
+- `0.8.0` modificacao dos nomes das classes
 - `0.7.1` estrutura das pastas e autoload
 - `0.7.0` namespace e phpcs
 - `0.6.0` mudança no nome composer

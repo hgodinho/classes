@@ -9,11 +9,11 @@
 namespace HGWP_Utils;
 
 /**
- * Classe HGWP_Extras
+ * Classe Extras
  *
  * Define métodos úteis para serem usados ao longo do projeto.
  */
-class HGWP_Extras {
+class Extras {
 	/**
 	 * Válida se o post existe no cpt via slug
 	 *
@@ -44,7 +44,7 @@ class HGWP_Extras {
 		} elseif ( 'start' === $pos ) {
 			return substr( $string, $knife_cut );
 		} else {
-			HGWP_Extras::special_var_dump( 'passar end ou start no 3º parâmetro', __CLASS__, __METHOD__, __LINE__, true );
+			Extras::special_var_dump( 'passar end ou start no 3º parâmetro', __CLASS__, __METHOD__, __LINE__, true );
 		}
 	}
 

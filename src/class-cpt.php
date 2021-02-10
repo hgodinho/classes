@@ -10,9 +10,9 @@
 namespace HGWP_Utils;
 
 /**
- * HGWP_Cpt
+ * Cpt
  */
-class HGWP_Cpt {
+class Cpt {
 
 	/**
 	 * Post Types

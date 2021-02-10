@@ -9,9 +9,9 @@
 namespace HGWP_Utils;
 
 /**
- * Classe HGWP_Admin
+ * Classe Admin
  */
-class HGWP_Admin {
+class Admin {
 	/**
 	 * Admin Options
 	 *
