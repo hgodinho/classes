@@ -14,7 +14,8 @@ Classes de utilidades para desenvolvimento em WordPress
 
 ## Changelog
 
-- `0.9.0` modificacao no das classes psr-4 standard PascalCase
+- `0.9.1` composer nome update
+- `0.9.0` modificacao nome das classes psr-4 standard PascalCase
 - `0.8.0` modificacao dos nomes das classes
 - `0.7.1` estrutura das pastas e autoload
 - `0.7.0` namespace e phpcs

@@ -1,5 +1,5 @@
 {
-    "name": "hgod/hgwp_utils",
+    "name": "hgod/hgwputils",
     "description": "Classes para criar custom-post-types, taxonomies, loads e admins pages no wordpress",
     "type": "library",
     "authors": [{
