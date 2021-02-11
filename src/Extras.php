@@ -55,7 +55,6 @@ class Extras {
 	 * @return array $plugin_data | Array with plugin data presents on file header.
 	 */
 	public static function file_data( $file ) {
-		$file        = dirname( plugin_dir_path( __FILE__ ) ) . '/' . $file;
 		$plugin_data = get_file_data(
 			$file,
 			array(
