@@ -19,7 +19,7 @@ class Cpt {
 	 *
 	 * @var array
 	 */
-	public $postTypes = array();
+	public $post_types = array();
 
 	/**
 	 * Construct
@@ -31,18 +31,18 @@ class Cpt {
 		if ( is_array( $args ) ) {
 			$count = count( array_values( $args ) );
 			if ( $count > 0 && $count < 2 ) {
-				$postType   = $args[0];
-				$parsed_post = $this->parseArgs( $postType );
-				array_push( $this->postTypes, $parsed_post );
+				$post_type   = $args[0];
+				$parsed_post = $this->parse_args( $post_type );
+				array_push( $this->post_types, $parsed_post );
 			} else {
-				foreach ( $args as $postType ) {
-					$parsed_post = $this->parseArgs( $postType );
-					array_push( $this->postTypes, $parsed_post );
+				foreach ( $args as $post_type ) {
+					$parsed_post = $this->parse_args( $post_type );
+					array_push( $this->post_types, $parsed_post );
 				}
 			}
 		}
 		if ( $init ) {
-			add_action( 'init', array( $this, 'registraPost' ) );
+			add_action( 'init', array( $this, 'registra_post' ) );
 		}
 	}
 
@@ -51,23 +51,23 @@ class Cpt {
 	 *
 	 * @return (WP_Post_Type|WP_Error) The registered post type object on success, WP_Error object on failure.
 	 */
-	public function registraPost() {
-		$postTypes = $this->postTypes;
+	public function registra_post() {
+		$post_types = $this->post_types;
 
-		if ( is_array( $postTypes ) ) {
-			$count = count( array_values( $postTypes ) );
+		if ( is_array( $post_types ) ) {
+			$count = count( array_values( $post_types ) );
 			if ( $count > 0 && $count < 2 ) {
-				$postType = $postTypes[0];
-				$name      = $postType['name'];
-				$args      = $postType['args'];
+				$post_type = $post_types[0];
+				$name      = $post_type['name'];
+				$args      = $post_type['args'];
 				$register  = register_post_type( $name, $args );
 				if ( is_wp_error( $register ) ) {
 					HGWP_Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
 				}
 			} else {
-				foreach ( $postTypes as $postType ) {
-					$name = $postType['name'];
-					$args = $postType['args'];
+				foreach ( $post_types as $post_type ) {
+					$name = $post_type['name'];
+					$args = $post_type['args'];
 					if ( is_string( $name ) && is_array( $args ) ) {
 						$register = register_post_type( $name, $args );
 					}
@@ -83,13 +83,13 @@ class Cpt {
 	/**
 	 * Arruma o array para passar para o método resgistra_post()
 	 *
-	 * @param array $postType | Options Array.
-	 * @return array $parsedPostType | Parsed Options Array.
+	 * @param array $post_type | Options Array.
+	 * @return array $parsedpost_type | Parsed Options Array.
 	 */
-	public function parseArgs( $postType ) {
-		$name   = $postType['name'];
-		$args   = $postType['args'];
-		$labels = $postType['args']['labels'];
+	public function parse_args( $post_type ) {
+		$name   = $post_type['name'];
+		$args   = $post_type['args'];
+		$labels = $post_type['args']['labels'];
 
 		$default_args = array(
 			'label'               => 'Post Type',
@@ -113,11 +113,11 @@ class Cpt {
 		);
 		$parsed_args  = wp_parse_args( $args, $default_args );
 
-		$parsedPostType = array(
+		$parsedpost_type = array(
 			'name' => $name,
 			'args' => $parsed_args,
 		);
 
-		return $parsedPostType;
+		return $parsedpost_type;
 	}
 }

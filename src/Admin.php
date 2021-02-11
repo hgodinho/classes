@@ -62,14 +62,14 @@ class Admin {
 	 * @param array $settings | Settings.
 	 */
 	public function __construct( $menu = array(), $submenus = array(), $settings = array() ) {
-		$this->parseMenu( $menu );
+		$this->parse_menu( $menu );
 		if ( ! empty( $submenus ) ) {
-			$this->parseSubmenus( $submenus );
+			$this->parse_submenus( $submenus );
 		}
-		add_action( 'adminMenu', array( $this, 'adminMenu' ) );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		if ( ! empty( $settings ) ) {
-			$this->parseSettings( $settings );
-			add_action( 'admin_init', array( $this, 'initSettings' ) );
+			$this->parse_settings( $settings );
+			add_action( 'admin_init', array( $this, 'init_settings' ) );
 		}
 	}
 
@@ -79,8 +79,8 @@ class Admin {
 	 * @param array $menu | Menu.
 	 * @return void
 	 */
-	public function parseMenu( $menu ) {
-		$adminMenu          = $menu;
+	public function parse_menu( $menu ) {
+		$admin_menu          = $menu;
 		$admin_menu_defaults = array(
 			'title'      => '',
 			'menu_title' => '',
@@ -90,7 +90,7 @@ class Admin {
 			'icon_url'   => '',
 			'position'   => null,
 		);
-		$parsed_admin_menu   = wp_parse_args( $adminMenu, $admin_menu_defaults );
+		$parsed_admin_menu   = wp_parse_args( $admin_menu, $admin_menu_defaults );
 		$this->menu          = $parsed_admin_menu;
 	}
 
@@ -100,7 +100,7 @@ class Admin {
 	 * @param array $submenus | Submenus.
 	 * @return void
 	 */
-	public function parseSubmenus( $submenus ) {
+	public function parse_submenus( $submenus ) {
 		$parsed_submenus = array();
 		foreach ( $submenus as $submenu ) {
 			$submenu_defaults     = array(
@@ -124,7 +124,7 @@ class Admin {
 	 * @param array $settings | Settings.
 	 * @return void
 	 */
-	public function parseSettings( $settings ) {
+	public function parse_settings( $settings ) {
 		$option_group      = $settings['option_group'];
 		$option_name       = $settings['option_name'];
 		$settings_sections = $settings['sections'];
@@ -132,11 +132,11 @@ class Admin {
 		if ( is_array( $settings_sections ) ) {
 			if ( count( array_values( $settings_sections ) ) > 0 && count( array_values( $settings_sections ) ) < 2 ) {
 				$section        = $settings_sections[0];
-				$parsed_section = $this->parseSection( $section );
+				$parsed_section = $this->parse_section( $section );
 				array_push( $sections, $parsed_section );
 			} else {
 				foreach ( $settings_sections as $section ) {
-					$parsed_section = $this->parseSection( $section );
+					$parsed_section = $this->parse_section( $section );
 					array_push( $sections, $parsed_section );
 				}
 			}
@@ -157,8 +157,8 @@ class Admin {
 	 * @return array $parsed_args | Parsed Options Array.
 	 * @deprecated 0.3
 	 */
-	public function parseArgs( $args ) {
-		$adminMenu          = $args['adminMenu'];
+	public function parse_args( $args ) {
+		$admin_menu          = $args['admin_menu'];
 		$admin_menu_defaults = array(
 			'title'      => '',
 			'menu_title' => '',
@@ -168,7 +168,7 @@ class Admin {
 			'icon_url'   => '',
 			'position'   => null,
 		);
-		$parsed_admin_menu   = wp_parse_args( $adminMenu, $admin_menu_defaults );
+		$parsed_admin_menu   = wp_parse_args( $admin_menu, $admin_menu_defaults );
 		$this->menu          = $parsed_admin_menu;
 
 		$admin_submenu = $args['admin_submenu'];
@@ -191,11 +191,11 @@ class Admin {
 		if ( is_array( $admin_settings ) ) {
 			if ( count( array_values( $admin_settings ) ) > 0 && count( array_values( $admin_settings ) ) < 2 ) {
 				$setting               = $admin_settings[0];
-				$parsed_admin_settings = $this->parseSettings( $setting );
+				$parsed_admin_settings = $this->parse_settings( $setting );
 				array_push( $settings, $parsed_admin_settings );
 			} else {
 				foreach ( $admin_settings as $setting ) {
-					$parsed_admin_settings = $this->parseSettings( $setting );
+					$parsed_admin_settings = $this->parse_settings( $setting );
 					array_push( $settings, $parsed_admin_settings );
 				}
 			}
@@ -203,7 +203,7 @@ class Admin {
 		}
 
 		$parsed_args = array(
-			'adminMenu'    => $parsed_admin_menu,
+			'admin_menu'    => $parsed_admin_menu,
 			'admin_submenu' => $this->submenus,
 			'settings'      => $this->settings,
 		);
@@ -216,17 +216,17 @@ class Admin {
 	 * @param array $section | Settings Sections to be parsed.
 	 * @return array $parsed_section | Parsed Settings Sections.
 	 */
-	public function parseSection( $section ) {
+	public function parse_section( $section ) {
 		$section_fields = $section['fields'];
 		$fields         = array();
 		if ( is_array( $section_fields ) ) {
 			if ( count( array_values( $section_fields ) ) > 0 && count( array_values( $section_fields ) ) < 2 ) {
 				$field        = $section_fields[0];
-				$parsed_field = $this->parseField( $section_fields );
+				$parsed_field = $this->parse_field( $section_fields );
 				array_push( $fields, $parsed_field );
 			} else {
 				foreach ( $section_fields as $field ) {
-					$parsed_field = $this->parseField( $field );
+					$parsed_field = $this->parse_field( $field );
 					array_push( $fields, $parsed_field );
 				}
 			}
@@ -252,7 +252,7 @@ class Admin {
 	 * @param array $field | Field to be parsed.
 	 * @return array $parsed_field | Parsed Field.
 	 */
-	public function parseField( $field ) {
+	public function parse_field( $field ) {
 		$field_defaults = array(
 			'id'       => '',
 			'title'    => '',
@@ -269,13 +269,13 @@ class Admin {
 	 *
 	 * @return void
 	 */
-	public function initSettings() {
+	public function init_settings() {
 		$settings = $this->settings;
 		register_setting(
 			$settings['option_group'],
 			$settings['option_name']
 		);
-		$this->loopSections( $settings['sections'] );
+		$this->loop_sections( $settings['sections'] );
 	}
 
 	/**
@@ -283,7 +283,7 @@ class Admin {
 	 *
 	 * @return void
 	 */
-	public function adminMenu() {
+	public function admin_menu() {
 		if ( isset( $this->menu ) && isset( $this->submenus ) ) {
 			$menu         = $this->menu;
 			$submenus     = $this->submenus;
@@ -297,7 +297,7 @@ class Admin {
 				$menu['position']
 			);
 			$menu['hook'] = $menu_page;
-			$this->loopSubmenu( $submenus );
+			$this->loop_submenu( $submenus );
 		}
 	}
 
@@ -307,7 +307,7 @@ class Admin {
 	 * @param array $args | Submenu parameters Array.
 	 * @return void
 	 */
-	public function loopSubmenu( $args ) {
+	public function loop_submenu( $args ) {
 		if ( is_array( $args ) ) {
 			$index = 0;
 			$count = count( array_values( $args ) );
@@ -351,7 +351,7 @@ class Admin {
 	 * @param array $args | Sections parameters Array.
 	 * @return void
 	 */
-	public function loopSections( $args ) {
+	public function loop_sections( $args ) {
 		if ( is_array( $args ) ) {
 			$count = count( array_values( $args ) );
 			if ( $count > 0 && $count < 2 ) {
@@ -363,7 +363,7 @@ class Admin {
 					$section['page']
 				);
 				$fields = $section['fields'];
-				$this->loopFields( $fields );
+				$this->loop_fields( $fields );
 			} else {
 				foreach ( $args as $section ) {
 					add_settings_section(
@@ -373,7 +373,7 @@ class Admin {
 						$section['page']
 					);
 					$fields = $section['fields'];
-					$this->loopFields( $fields );
+					$this->loop_fields( $fields );
 				}
 			}
 		}
@@ -385,7 +385,7 @@ class Admin {
 	 * @param array $args | Fields parameters Array.
 	 * @return void
 	 */
-	public function loopFields( $args ) {
+	public function loop_fields( $args ) {
 		if ( is_array( $args ) ) {
 			$count = count( array_values( $args ) );
 			if ( $count > 0 && $count < 2 ) {
