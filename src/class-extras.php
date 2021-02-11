@@ -6,7 +6,7 @@
  * @author Henrique Godinho <ola@hgod.in>
  */
 
-namespace HGWPUtils;
+namespace HgwpUtils;
 
 /**
  * Classe Extras
