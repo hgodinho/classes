@@ -1,12 +1,12 @@
 <?php
 /**
- * HGWP_Loads
+ * Loads
  *
- * @package hgod/hgwp_utils
+ * @package hgod/hgwputils
  * @author Henrique Godinho <ola@hgod.in>
  */
 
-namespace HgwpUtils;
+namespace HGWPUtils;
 
 /**
  * Loads

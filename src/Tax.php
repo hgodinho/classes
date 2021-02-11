@@ -3,11 +3,11 @@
  * Adiciona as Custom Taxonomies
  *
  * @link https://developer.wordpress.org/reference/functions/register_taxonomy/
- * @package hgod/hgwp_utils
+ * @package hgod/hgwputils
  * @author Henrique Godinho <ola@hgod.in>
  */
 
-namespace HgwpUtils;
+namespace HGWPUtils;
 
 /**
  * Tax

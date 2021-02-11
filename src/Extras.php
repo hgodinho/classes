@@ -1,12 +1,12 @@
 <?php
 /**
- * HGWP_Extras
+ * Extras
  *
- * @package hgod/hgwp_utils
+ * @package hgod/hgwputils
  * @author Henrique Godinho <ola@hgod.in>
  */
 
-namespace HgwpUtils;
+namespace HGWPUtils;
 
 /**
  * Classe Extras
