@@ -73,6 +73,11 @@ class Loads {
 							HGWP_Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_script( $script['handle'] );
+						if ( isset( $script['inline_scripts'] ) ) {
+							$json_obj = wp_json_encode( $script['inline_scripts'] );
+							$data     = 'const ' . $script['handle'] . ' = ' . $json_obj;
+							$inline   = wp_add_inline_script( $script['handle'], $data, 'before' );
+						}
 					}
 				}
 			}
