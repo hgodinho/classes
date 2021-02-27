@@ -14,6 +14,8 @@ Classes de utilidades para desenvolvimento em WordPress
 
 ## Changelog
 
+- `0.11.4` melhoria na apresentacao do log
+- `0.11.3` arrumar bugs em Extras::special_log()
 - `0.11.2` adiciona wp_inline_script no loop do Loads. passar parametro no array script['inline_scripts']
 - `0.11.1` bug file_data()
 - `0.11.0` snake_case_functions

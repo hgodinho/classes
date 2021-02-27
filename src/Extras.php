@@ -131,11 +131,11 @@ class Extras {
 		} else {
 			$msg = print_r( $msg, true );
 		}
-		$log = '[' . $date . '] - ' . 
+		$log = '[' . $date . ']' . "\n" . 
 			'@class-' . $class . "\n" . 
 			'@method-' . $method . "\n" . 
 			'@linha-' . $line . "\n" .  
-			$title . "\n" . $msg . "\n";
+			$title . "\n" . $msg . "\n\n";
 		Extras::file_force_contents( $dir . 'log/debug.log', $log );
 	}
 
