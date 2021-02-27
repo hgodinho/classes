@@ -124,15 +124,19 @@ class Extras {
 	/**
 	 * Log especial
 	 */
-	public static function special_log( $msg, $title = 'log', $class, $method, $line ) {
+	public static function special_log( $dir, $msg, $title = 'log', $class, $method, $line ) {
 		$date = date( 'd.m.Y h:i:s' );
 		if ( is_bool( $msg ) ) {
 			$msg = print( $msg );
 		} else {
 			$msg = print_r( $msg, true );
 		}
-		$log = '[' . $date . '] - ' . $method . ' @linha-' . $line . ' | ' . $title . "\n" . $msg . "\n";
-		HGWP_Extras::file_force_contents( dirname( plugin_dir_path( __FILE__ ), 1 ) . '/log/debug.log', $log );
+		$log = '[' . $date . '] - ' . 
+			'@class-' . $class . "\n" . 
+			'@method-' . $method . "\n" . 
+			'@linha-' . $line . "\n" .  
+			$title . "\n" . $msg . "\n";
+		Extras::file_force_contents( $dir . 'log/debug.log', $log );
 	}
 
 	/**
