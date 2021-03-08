@@ -60,7 +60,7 @@ class Tax {
 				$args       = $taxonomy['args'];
 				$register   = register_taxonomy( $name, $post_types, $args );
 				if ( is_wp_error( $register ) ) {
-					HGodBee::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
+					Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
 				}
 			} else {
 				foreach ( $taxonomies as $taxonomy ) {
@@ -69,7 +69,7 @@ class Tax {
 					$args       = $taxonomy['args'];
 					$register   = register_taxonomy( $name, $post_types, $args );
 					if ( is_wp_error( $register ) ) {
-						HGodBee::hb_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
+						Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
 					}
 				}
 			}

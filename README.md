@@ -14,6 +14,7 @@ Classes de utilidades para desenvolvimento em WordPress
 
 ## Changelog
 
+- `0.11.5` correção do chamado da classe de debug na classe tax quando o registro de taxonomias retornava um erro
 - `0.11.4` melhoria na apresentacao do log
 - `0.11.3` arrumar bugs em Extras::special_log()
 - `0.11.2` adiciona wp_inline_script no loop do Loads. passar parametro no array script['inline_scripts']
