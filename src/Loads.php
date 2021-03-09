@@ -70,7 +70,7 @@ class Loads {
 							$script['in_footer']
 						);
 						if ( ! $done ) {
-							HGWP_Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
+							Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_script( $script['handle'] );
 						if ( isset( $script['inline_scripts'] ) ) {
@@ -104,7 +104,7 @@ class Loads {
 							$style['in_footer']
 						);
 						if ( ! $done ) {
-							HGWP_Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
+							Extras::special_var_dump( $done, __CLASS__, __METHOD__, __LINE__, true );
 						}
 						wp_enqueue_style( $style['handle'] );
 					}

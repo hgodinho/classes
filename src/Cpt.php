@@ -62,7 +62,7 @@ class Cpt {
 				$args      = $post_type['args'];
 				$register  = register_post_type( $name, $args );
 				if ( is_wp_error( $register ) ) {
-					HGWP_Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
+					Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, true );
 				}
 			} else {
 				foreach ( $post_types as $post_type ) {
@@ -72,7 +72,7 @@ class Cpt {
 						$register = register_post_type( $name, $args );
 					}
 					if ( is_wp_error( $register ) ) {
-						HGWP_Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, false );
+						Extras::special_var_dump( $register, __CLASS__, __METHOD__, __LINE__, false );
 					}
 				}
 			}
