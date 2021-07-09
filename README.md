@@ -72,6 +72,7 @@ Para iniciar a classe Cpt você precisa passar dois parâmetros `$args` (array) 
 
 ***
 ## Changelog
+- `0.11.8` bug-fix na registra_post
 - `0.11.7` condicional $init aprimorada e adição e envio de warning para query-monitor
 - `0.11.6` correção do chamado da classe de debug nas classe Cpt e Load
 - `0.11.5` correção do chamado da classe de debug na classe tax quando o registro de taxonomias retornava um erro

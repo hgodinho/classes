@@ -22,12 +22,18 @@ class Cpt {
 	public $post_types = array();
 
 	/**
+	 * INIT
+	 */
+	public $init;
+
+	/**
 	 * Construct
 	 *
 	 * @param array   $args | CPT options.
 	 * @param boolean $init | Init.
 	 */
 	public function __construct( $args, $init = true ) {
+		$this->init = $init;
 		if ( is_array( $args ) ) {
 			$count = count( array_values( $args ) );
 			if ( $count > 0 && $count < 2 ) {
@@ -52,7 +58,7 @@ class Cpt {
 	 * @return (WP_Post_Type|WP_Error) The registered post type object on success, WP_Error object on failure.
 	 */
 	public function registra_post() {
-		if ( $init ) {
+		if ( $this->init ) {
 			if ( is_plugin_active( 'query-monitor/query-monitor.php' ) ) {
 				do_action( 'qm/warning', 'HGWPUtils::Cpt::registra_post() -> Posts já registrados. Retornando...' );
 				return;
