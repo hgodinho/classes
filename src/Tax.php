@@ -26,7 +26,8 @@ class Tax {
 	 *
 	 * @param array $args | Taxonomies options array.
 	 */
-	public function __construct( $args ) {
+	public function __construct( $args, $init = true ) {
+		$this->init = $init;
 		if ( is_array( $args ) ) {
 			$count = count( array_values( $args ) );
 			if ( $count > 0 && $count < 2 ) {
@@ -40,7 +41,9 @@ class Tax {
 				}
 			}
 		}
-		add_action( 'init', array( $this, 'registra_taxonomia' ) );
+		if ( $init ) {
+			add_action( 'init', array( $this, 'registra_taxonomia' ) );	
+		}
 	}
 
 

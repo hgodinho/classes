@@ -5,11 +5,15 @@ Classes de utilidades para desenvolvimento em WordPress
 ***
 ## todo
 
-- [ ] doc,
-- [ ] securit checks,
-- [ ] error handling,
-- [ ] widgets,
-- [ ] menus?
+- [ ] doc;
+  - [x] tax
+  - [x] cpt
+  - [ ] admin
+  - [ ] extras
+- [ ] securit checks;
+- [ ] error handling;
+- [ ] widgets(?);
+- [ ] menus(?);
 
 ***
 
@@ -26,29 +30,32 @@ Para iniciar a classe Cpt você precisa passar dois parâmetros `$args` (array) 
 
         array(
             array(
-                'label'               => 'Post Type',
-                'description'         => 'Post Type Description',
-                'labels'              => $labels, // @see https://developer.wordpress.org/reference/functions/get_post_type_labels/ for a full list os labels
-                'supports'            => false,
-                'taxonomies'          => array( 'category', 'post_tag' ),
-                'hierarchical'        => false,
-                'public'              => true,
-                'show_ui'             => true,
-                'show_in_menu'        => true,
-                'show_in_rest'        => true,
-                'menu_position'       => 5,
-                'show_in_admin_bar'   => true,
-                'show_in_nav_menus'   => true,
-                'can_export'          => true,
-                'has_archive'         => true,
-                'exclude_from_search' => false,
-                'publicly_queryable'  => true,
-                'capability_type'     => 'post',
+                'name' => 'post_type_name',
+                'args' => array(
+                    'label'               => 'Post Type',
+                    'description'         => 'Post Type Description',
+                    'labels'              => $labels, // @see https://developer.wordpress.org/reference/functions/get_post_type_labels/ for a full list os labels
+                    'supports'            => array(),
+                    'taxonomies'          => array( 'category', 'post_tag' ),
+                    'hierarchical'        => false,
+                    'public'              => true,
+                    'show_ui'             => true,
+                    'show_in_menu'        => true,
+                    'show_in_rest'        => true,
+                    'menu_position'       => 5,
+                    'show_in_admin_bar'   => true,
+                    'show_in_nav_menus'   => true,
+                    'can_export'          => true,
+                    'has_archive'         => true,
+                    'exclude_from_search' => false,
+                    'publicly_queryable'  => true,
+                    'capability_type'     => 'post',
+                )
             ),
             ...
         )
 
-2. __$init__: (boolean) Se a classe inicia por default ou deve ser iniciado utilizando o método `Cpt::registra_post()`
+2. __`$init`__: (boolean) Se a classe inicia por default ou deve ser inicializada utilizando o método `Cpt::registra_post()`
     
     - __Default:__ `true`
 
@@ -67,11 +74,39 @@ Para iniciar a classe Cpt você precisa passar dois parâmetros `$args` (array) 
 ***
 ### class HGWP_Tax
 
+Para iniciar a classe Tax você precisa passar dois parâmetros `$args` (array) e `$init` (boolean|default: true).
+
+#### Parâmetros
+
+1. __`$args`__:
+   Array de taxonomias a serem criadas. [@see `register_taxonomy()`](https://developer.wordpress.org/reference/functions/register_taxonomy/)
+
+        array(
+                array(
+                    'name' => 'post_type_name', // string
+                    'post_types' => 'post_types', // string|array
+                    'args' => array( // @see https://developer.wordpress.org/reference/functions/register_taxonomy/
+                        'hierarchical' => true,
+                    ),
+                    'labels'           => array(
+                        'name'          => 'Name of tax', @see https://developer.wordpress.org/reference/functions/get_taxonomy_labels/
+                    ),
+                ),
+                ...
+            );
+
+2. __`$init`__: (boolean) Se a classe inicia por default ou deve ser inicializada utilizando o método `Tax::registra_taxonomia()`
+    
+    - __Default:__ `true`
+#### Métodos
+
+- __`Tax::registra_taxonomia()`__: Chamado automaticamente quando `$init === true`, se na inicialização da classe for passado o valor `false` você precisará chamar este método manualmente para registrar taxonomias no WordPress.
 ***
 ### class HGWP_Utils
 
 ***
 ## Changelog
+- `0.12` condicional $init na classe Tax, melhoria na dumentação
 - `0.11.9` remove condicional $init registra_post
 - `0.11.8` bug-fix na registra_post
 - `0.11.7` condicional $init aprimorada e adição e envio de warning para query-monitor
