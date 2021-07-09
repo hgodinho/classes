@@ -52,6 +52,15 @@ class Cpt {
 	 * @return (WP_Post_Type|WP_Error) The registered post type object on success, WP_Error object on failure.
 	 */
 	public function registra_post() {
+		if ( $init ) {
+			if ( is_plugin_active( 'query-monitor/query-monitor.php' ) ) {
+				do_action( 'qm/warning', 'HGWPUtils::Cpt::registra_post() -> Posts já registrados. Retornando...' );
+				return;
+			} else {
+				Extras::special_var_dump( 'Posts já registrados. Retornando...', __CLASS__, __METHOD__, __LINE__, false );
+			}
+		}
+
 		$post_types = $this->post_types;
 
 		if ( is_array( $post_types ) ) {

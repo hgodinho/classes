@@ -1,19 +1,78 @@
 # HGWP_Utils
 
 Classes de utilidades para desenvolvimento em WordPress
+
+***
+## todo
+
+- [ ] doc,
+- [ ] securit checks,
+- [ ] error handling,
+- [ ] widgets,
+- [ ] menus?
+
+***
+
 ### class HGWP_Admin
 
 ### class HGWP_Cpt
 
+Para iniciar a classe Cpt você precisa passar dois parâmetros `$args` (array) e `$init` (boolean|default: true).
+
+#### Parâmetros
+
+1. __`$args`__:
+   Array de post-types para serem criados. [@see `register_post_type()`](https://developer.wordpress.org/reference/functions/register_post_type/)
+
+        array(
+            array(
+                'label'               => 'Post Type',
+                'description'         => 'Post Type Description',
+                'labels'              => $labels, // @see https://developer.wordpress.org/reference/functions/get_post_type_labels/ for a full list os labels
+                'supports'            => false,
+                'taxonomies'          => array( 'category', 'post_tag' ),
+                'hierarchical'        => false,
+                'public'              => true,
+                'show_ui'             => true,
+                'show_in_menu'        => true,
+                'show_in_rest'        => true,
+                'menu_position'       => 5,
+                'show_in_admin_bar'   => true,
+                'show_in_nav_menus'   => true,
+                'can_export'          => true,
+                'has_archive'         => true,
+                'exclude_from_search' => false,
+                'publicly_queryable'  => true,
+                'capability_type'     => 'post',
+            ),
+            ...
+        )
+
+2. __$init__: (boolean) Se a classe inicia por default ou deve ser iniciado utilizando o método `Cpt::registra_post()`
+    
+    - __Default:__ `true`
+
+
+
+
+
+
+
+#### Métodos
+
+- __`Cpt::registra_post()`__: Chamado automaticamente quando `$init === true`, se na inicialização da classe for passado o valor `false` você precisará chamar este método manualmente para registrar os Custom Post Types no WordPress.
+***
 ### class HGWP_Loads
 
+***
 ### class HGWP_Tax
 
+***
 ### class HGWP_Utils
 
-
+***
 ## Changelog
-
+- `0.11.7` condicional $init aprimorada e adição e envio de warning para query-monitor
 - `0.11.6` correção do chamado da classe de debug nas classe Cpt e Load
 - `0.11.5` correção do chamado da classe de debug na classe tax quando o registro de taxonomias retornava um erro
 - `0.11.4` melhoria na apresentacao do log
@@ -38,10 +97,3 @@ Classes de utilidades para desenvolvimento em WordPress
 - `0.2.0` multiple adds and changes,
 - `0.1.0` init.
 
-### todo
-
-- [ ] doc,
-- [ ] securit checks,
-- [ ] error handling,
-- [ ] widgets,
-- [ ] menus?
